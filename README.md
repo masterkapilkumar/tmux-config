@@ -1,6 +1,7 @@
 # tmux-config
 User friendly tmux configuration
 
+```
 set -g prefix C-a
 
 unbind C-b
@@ -67,3 +68,4 @@ unbind C-w
 bind -n C-w confirm-before -p "kill-pane #P? (y/n)" kill-pane
 
 set-option -g status-position top
+```
