@@ -51,16 +51,16 @@ set -g pane-active-border-fg colour39
 set -g message-fg colour16
 set -g message-bg colour221
 set -g message-attr bold
-set -g status-left '#[fg=colour235,bg=colour252,bold]  #S#[fg=colour252,bg=colour238,nobold]#[fg=colour245,bg=colour238,bold] #(whoami)#[fg=colour238,bg=colour234,nobold]'
-set -g status-right '#[fg=colour39, bg=colour234]#[fg=colour234,bg=colour39]%A, %d %b %Y %I:%M %p'
+set -g status-left '#[fg=colour235,bg=colour252,bold]  #S#[fg=colour252,bg=colour238,nobold]#[fg=colour245,bg=colour238,bold]#(whoami)#[fg=colour238,bg=colour234,nobold]'
+set -g status-right '#[fg=colour39, bg=colour245]#[fg=colour234,bg=colour245]%A, %d %b %Y %I:%M %p'
 set -g window-status-format "#[fg=white,bg=colour234] #I #W "
-set -g window-status-current-format "#[fg=colour234,bg=colour39]#[fg=colour25,bg=colour39,noreverse,bold] #I  #W#[fg=colour39,bg=colour234,nobold]"
+set -g window-status-current-format "#[fg=colour234,bg=colour198]#[fg=colour0,bg=colour187,noreverse,bold] #I  #W#[fg=colour39,bg=colour234,nobold]"
 
 bind-key ` next-window
 #bind-key ~ previous-window
 
 #set-window-option -g automatic-rename on
-set-option -g set-titles on
+#set-option -g set-titles on
 
 unbind C-t
 bind -n C-t new-window
@@ -68,4 +68,11 @@ unbind C-w
 bind -n C-w confirm-before -p "kill-pane #P? (y/n)" kill-pane
 
 set-option -g status-position top
+
+#pane movement
+bind-key j command-prompt -p "join pane from:"  "join-pane -s '%%'"
+bind-key s command-prompt -p "send pane to:"  "join-pane -t '%%'"
+
+bind-key -n C-S-Left swap-window -t -1
+bind-key -n C-S-Right swap-window -t +1
 ```
